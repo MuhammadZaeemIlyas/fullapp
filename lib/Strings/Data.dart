@@ -2,51 +2,73 @@ List<Map> Data = [
   {
     "name": "Fresh Apple",
     "Image":
-        "https://images.pexels.com/photos/1630588/pexels-photo-1630588.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/1536365/pexels-photo-1536365.jpeg?auto=compress&cs=tinysrgb&w=600",
     "object type": "Fruit",
-    "Price": "\$12"
+    "Price": "\$12",
   },
   {
-    "name": "Fresh Water Melon",
+    "name": "Berries",
     "Image":
-        'https://images.pexels.com/photos/5946081/pexels-photo-5946081.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/326131/pexels-photo-326131.jpeg?auto=compress&cs=tinysrgb&w=600',
     "object type": "Fruit",
     "Price": "\$35"
   },
   {
-    "name": "Potato",
+    "name": "Pineapple",
     "Image":
-        'https://images.pexels.com/photos/2935021/pexels-photo-2935021.jpeg?auto=compress&cs=tinysrgb&w=600',
-    "object type": "Vegetable",
+        'https://images.pexels.com/photos/7194784/pexels-photo-7194784.jpeg?auto=compress&cs=tinysrgb&w=600',
+    "object type": "Fruit",
     "Price": "\$44"
   },
   {
     "name": "Mango",
     "Image":
-        "https://images.pexels.com/photos/18102968/pexels-photo-18102968/free-photo-of-ripe-orange-hanging-in-tree-branch.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/2294471/pexels-photo-2294471.jpeg?auto=compress&cs=tinysrgb&w=600",
     "object type": "Fruit",
     "Price": "\$10"
   },
   {
-    "name": "Chilli",
+    "name": "Mix Vegetables",
     "Image":
-        "https://images.pexels.com/photos/18102968/pexels-photo-18102968/free-photo-of-ripe-orange-hanging-in-tree-branch.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "object type": "Banana",
+        "https://images.pexels.com/photos/4397028/pexels-photo-4397028.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "object type": "Vegetables",
+    "Price": "\$50"
+  },
+  {
+    "name": "Strawberry",
+    "Image":
+        "https://images.pexels.com/photos/15763953/pexels-photo-15763953/free-photo-of-single-fresh-strawberry.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "object type": "Fruit",
     "Price": "\$10"
   },
   {
-    "name": "Chilli",
+    "name": "Apricots",
     "Image":
-        "https://images.pexels.com/photos/18102968/pexels-photo-18102968/free-photo-of-ripe-orange-hanging-in-tree-branch.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "object type": "Organic4",
+        "https://images.pexels.com/photos/18142443/pexels-photo-18142443/free-photo-of-close-up-of-apricots.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "object type": "Fruit",
     "Price": "\$10"
   },
   {
-    "name": "Chilli",
+    "name": "Mix",
     "Image":
-        "https://images.pexels.com/photos/18102968/pexels-photo-18102968/free-photo-of-ripe-orange-hanging-in-tree-branch.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "object type": "Organic4",
-    "Price": "\$10"
+        "https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "object type": "Fruits",
+    "Price": "\$100"
+  },
+  {
+    "name": "Cherries",
+    "Image":
+        "https://images.pexels.com/photos/1313255/pexels-photo-1313255.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "object type": "Fruit",
+    "Price": "\$40"
+  },
+  {
+    "name": "Banana",
+    "Image":
+        "https://images.pexels.com/photos/13211456/pexels-photo-13211456.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "object type": "Fruit",
+    "Price": "\$40"
   },
 ];
 List<Map> AddtoCart = [{}];
+List<int> selectedIndices = [];

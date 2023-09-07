@@ -23,7 +23,8 @@ class _BuyScreenState extends State<BuyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.black10,
+        shadowColor: AppColors.black10,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -45,7 +46,13 @@ class _BuyScreenState extends State<BuyScreen> {
             decoration: BoxDecoration(color: AppColors.black10),
             height: MediaQuery.of(context).size.height * 0.3,
             width: MediaQuery.of(context).size.width,
-            child: Image.network(widget.Imageontap),
+            child: Image.network(
+              widget.Imageontap,
+              fit: BoxFit.cover,
+            ),
+          ),
+          SizedBox(
+            height: 10,
           ),
           Container(
             child: Column(
@@ -69,7 +76,25 @@ class _BuyScreenState extends State<BuyScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      ElevatedButton(onPressed: () {}, child: Text("asdas")),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        height: MediaQuery.of(context).size.height * 0.09,
+                        child: ElevatedButton(
+                            onPressed: () {},
+                            child: AppSmallText(
+                                text: 'Add to Cart',
+                                family: "Manrope",
+                                color: AppColors.blue,
+                                size: 15),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                  side: BorderSide(color: AppColors.blue),
+                                  borderRadius: BorderRadius.circular(20)),
+                              fixedSize: Size(MediaQuery.of(context).size.width,
+                                  MediaQuery.of(context).size.height),
+                            )),
+                      ),
                       SizedBox(
                           width: MediaQuery.of(context).size.width * 0.5,
                           height: MediaQuery.of(context).size.height * 0.09,

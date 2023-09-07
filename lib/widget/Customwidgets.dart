@@ -11,18 +11,19 @@ class Customwidgets extends StatelessWidget {
   final String? text1;
   final String? text2;
   final String? text3;
-
-  const Customwidgets({super.key, this.text1, this.text2, this.text3});
+  final String? imagebanner;
+  const Customwidgets(
+      {super.key, this.text1, this.text2, this.text3, this.imagebanner});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.8,
-      height: MediaQuery.of(context).size.height * 0.2,
+      height: MediaQuery.of(context).size.height * 0.17,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25),
-        color: AppColors.orange,
-      ),
+          borderRadius: BorderRadius.circular(25),
+          image: DecorationImage(
+              image: NetworkImage(imagebanner!), fit: BoxFit.cover)),
       child: Row(
         children: [
           Column(
@@ -30,7 +31,7 @@ class Customwidgets extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(25),
                 child: SvgPicture.asset(
-                  "assets/images/Image icon.svg",
+                  "assets/images/Image Icon.svg",
                   width: MediaQuery.of(context).size.width * 0.1,
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),
@@ -46,10 +47,13 @@ class Customwidgets extends StatelessWidget {
                 AppSmallText(
                   text: text2!,
                   family: "Manrope",
-                  size: 30,
+                  size: 35,
                   weight: FontWeight.bold,
                 ),
-                DefaultText(text: text3!)
+                DefaultText(
+                  text: text3!,
+                  size: 17,
+                )
               ],
             ),
           ),
@@ -174,14 +178,14 @@ class _CustomitemboxState extends State<Customitembox> {
 }
 
 class CustomListTile extends StatefulWidget {
-  final String? text;
-  final String? pprice;
-  final String? urlimage;
+  final String text;
+  final String pprice;
+  final String urlimage;
   const CustomListTile({
     super.key,
-    this.text,
-    this.pprice,
-    this.urlimage,
+    required this.text,
+    required this.pprice,
+    required this.urlimage,
   });
 
   @override
@@ -193,9 +197,16 @@ class _CustomListTileState extends State<CustomListTile> {
   Widget build(BuildContext context) {
     return ListTile(
       tileColor: AppColors.black1,
-      leading: Image.network(widget.urlimage!),
-      title: Text(widget.text!),
-      subtitle: Text(widget.pprice!),
+      leading: Container(
+        width: 55,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            image: DecorationImage(
+                image: NetworkImage(widget.urlimage), fit: BoxFit.cover)),
+      ),
+      title:
+          DefaultText(text: widget.text, color: AppColors.black100, size: 17),
+      subtitle: DefaultText(text: widget.pprice, color: AppColors.black100),
       trailing: Wrap(
         children: [
           IconButton(
@@ -291,33 +302,39 @@ class _imagecardState extends State<imagecard> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
-                      image: NetworkImage(widget.imagechahiye),
-                      fit: BoxFit.cover)),
+            child: Padding(
+              padding: const EdgeInsets.all(5),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    image: DecorationImage(
+                        image: NetworkImage(widget.imagechahiye),
+                        fit: BoxFit.cover)),
+              ),
             ),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AppSmallText(
-                text: widget.itemname!,
-                family: "Manrope",
-                size: 20,
-                color: AppColors.black100,
-                weight: FontWeight.bold,
-              ),
-              AppSmallText(
-                text: widget.itemtype!,
-                family: "Manrope",
-                size: 15,
-                color: AppColors.black100,
-                weight: FontWeight.w200,
-              ),
-            ],
+          Padding(
+            padding: const EdgeInsets.all(12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppSmallText(
+                  text: widget.itemname!,
+                  family: "Manrope",
+                  size: 20,
+                  color: AppColors.black100,
+                  weight: FontWeight.bold,
+                ),
+                AppSmallText(
+                  text: widget.itemtype!,
+                  family: "Manrope",
+                  size: 15,
+                  color: AppColors.black100,
+                  weight: FontWeight.w200,
+                ),
+              ],
+            ),
           ),
           Container(
             decoration: BoxDecoration(
@@ -358,61 +375,6 @@ class _imagecardState extends State<imagecard> {
               ),
             ),
           )
-        ],
-      ),
-    );
-  }
-}
-
-class newcard extends StatefulWidget {
-  final String imagechahiye;
-  final String? firstUnittext;
-  final String? pricetext;
-  final String? itemname;
-  final String? itemtype;
-  const newcard(
-      {super.key,
-      required this.imagechahiye,
-      this.firstUnittext,
-      this.pricetext,
-      this.itemname,
-      this.itemtype});
-
-  @override
-  State<newcard> createState() => _newcardState();
-}
-
-class _newcardState extends State<newcard> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 154,
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(20))),
-      child: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Color(0xFFEFEF2),
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-            ),
-            child: Image.network(
-              widget.imagechahiye,
-              fit: BoxFit.cover,
-            ),
-          ),
-          Row(
-            children: [
-              AppSmallText(
-                text: widget.itemname!,
-                family: "Manrope",
-                size: 12,
-                color: AppColors.black90,
-                weight: FontWeight.w500,
-              ),
-            ],
-          ),
         ],
       ),
     );

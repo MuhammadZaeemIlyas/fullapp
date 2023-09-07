@@ -13,8 +13,14 @@ class GetStarted extends StatefulWidget {
 
 class _GetStartedState extends State<GetStarted> {
   List<Map<String, String>> images = [
-    {"images": "assets/images/started 1.jpg"},
-    {"images": "assets/images/started 2.jpg"},
+    {
+      "images":
+          "https://images.pexels.com/photos/5966431/pexels-photo-5966431.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+      "images":
+          "https://images.pexels.com/photos/1765597/pexels-photo-1765597.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
   ];
 
   List<Map<String, String>> text = [
@@ -48,7 +54,9 @@ class _GetStartedState extends State<GetStarted> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     AppLargeText(
-                        text: text[index]["title"]!, color: AppColors.black1),
+                        text: text[index]["title"]!,
+                        family: "Manrope",
+                        color: AppColors.black1),
                     const SizedBox(
                       height: 10,
                     ),
@@ -56,6 +64,7 @@ class _GetStartedState extends State<GetStarted> {
                       width: 250,
                       child: AppSmallText(
                         text: text[index]["subtitle"]!,
+                        family: "Manrope",
                         color: AppColors.black45,
                       ),
                     ),
@@ -87,10 +96,11 @@ class _GetStartedState extends State<GetStarted> {
                                 width: 200,
                                 height: 200,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(15),
                                   image: DecorationImage(
-                                      image:
-                                          AssetImage(images[index]["images"]!),
+                                      image: NetworkImage(
+                                          images[index]["images"]!),
+                                      //    AssetImage(images[index]["images"]!),
                                       fit: BoxFit.cover),
                                 ),
                               ),
@@ -115,16 +125,21 @@ class _GetStartedState extends State<GetStarted> {
                                     borderRadius: BorderRadius.circular(20),
                                     color: AppColors.black1,
                                   ),
-                                  child: const Row(
+                                  child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
                                         "Get Started",
-                                        style: TextStyle(fontSize: 20),
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontFamily: "Manrope",
+                                            fontWeight: FontWeight.bold,
+                                            color: AppColors.blue),
                                       ),
                                       Icon(
-                                        Icons.arrow_right_alt_rounded,
+                                        Icons.arrow_forward_outlined,
+                                        color: AppColors.blue,
                                         size: 40,
                                       )
                                     ],

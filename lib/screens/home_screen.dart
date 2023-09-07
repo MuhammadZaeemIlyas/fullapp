@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mini_ui_project/Appicons/my_flutter_app_icons.dart';
+import 'package:mini_ui_project/Strings/Data.dart';
 import 'package:mini_ui_project/constan/appColors.dart';
 import 'package:mini_ui_project/screens/Shoppincart.dart';
 import 'package:mini_ui_project/screens/categories.dart';
@@ -19,10 +20,17 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectIndex = 0;
 
-  List _screen = [
+  final List _screen = [
     Home(),
     Catedories(),
-    ShoppingCart(),
+    if (AddtoCart.isEmpty)
+      Text("No items") // Show this when AddtoCart is empty
+    else
+      ShoppingCart(
+          // simageurl: AddtoCart.isNotEmpty ? AddtoCart[0]['Image'].toString() : '',
+          // sitemname: AddtoCart.isNotEmpty ? AddtoCart[0]['name'].toString() : '',
+          // sprice: AddtoCart.isNotEmpty ? AddtoCart[0]['Price'].toString() : '',
+          ),
     Favourite(),
     MoreScreen(),
   ];
