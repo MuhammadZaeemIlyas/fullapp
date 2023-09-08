@@ -5,7 +5,7 @@ import 'package:mini_ui_project/widget/appSmallText.dart';
 
 class BuyScreen extends StatefulWidget {
   final String productname;
-  final String productprice;
+  final int productprice;
   final String Imageontap;
 
   const BuyScreen(
@@ -65,7 +65,7 @@ class _BuyScreenState extends State<BuyScreen> {
                   color: AppColors.black100,
                 ),
                 AppSmallText(
-                  text: widget.productprice,
+                  text: widget.productprice?.toString() ?? 'N/A',
                   size: 25,
                   weight: FontWeight.bold,
                   family: "Manrope",

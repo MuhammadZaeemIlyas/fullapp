@@ -18,6 +18,7 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
+List<Map> items = [];
 int v = 0;
 int amount = 2;
 int fixedamount = 12;
@@ -234,20 +235,29 @@ class _HomeState extends State<Home> {
                         pricetext: Data[index]['Price'],
                         pressed: () {
                           setState(() {
-                            if (index >= 0 && index < AddtoCart.length) {
-                              // Check if the index is within the valid range
-                              AddtoCart.add(Data[index]);
-                              print(AddtoCart);
-                              print('afdsafasdfhello');
+                            // if (index >= 0 && index < AddtoCart.length) {
+                            //   // Check if the index is within the valid range
+                            //   AddtoCart.add(Data[index]);
 
-                              // ShoppingCart(
-                              //     sitemname: Data[index]['name'],
-                              //     sprice: Data[index]['Price'],
-                              //     simageurl: Data[index]['Image']);
-                            } else {
-                              // Handle the case where index is out of bounds
-                              print('Index out of bounds: $index');
-                            }
+                            items.add(Data[index]);
+                            // items = [
+                            //   {
+                            //     'name': Data[index]['name'],
+                            //     'Image': Data[index]['Image'],
+                            //     'Price': Data[index]['Price'],
+                            //   }
+                            // ];
+                            print('afdsafasdfhello');
+                            print(items);
+
+                            // ShoppingCart(
+                            //     sitemname: Data[index]['name'],
+                            //     sprice: Data[index]['Price'],
+                            //     simageurl: Data[index]['Image']);
+                            // } else {
+                            //   // Handle the case where index is out of bounds
+                            //   print('Index out of bounds: $index');
+                            // }
                           });
                         },
                       ));

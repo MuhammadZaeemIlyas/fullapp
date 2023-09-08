@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mini_ui_project/Strings/Data.dart';
 import 'package:mini_ui_project/constan/appColors.dart';
 import 'package:mini_ui_project/screens/BuyScreen.dart';
+import 'package:mini_ui_project/screens/home.dart';
 import 'package:mini_ui_project/widget/Customwidgets.dart';
 import 'package:mini_ui_project/widget/appSmallText.dart';
 
@@ -15,16 +16,26 @@ class ShoppingCart extends StatefulWidget {
   State<ShoppingCart> createState() => _ShoppingCartState();
 }
 
+int Subtotal = 0;
+int Delivery = 2;
+int Total = 0;
+int quantity = 0;
+
 class _ShoppingCartState extends State<ShoppingCart> {
-  @override
-  void initState() {
-    print(AddtoCart);
-    // TODO: implement initState
-    super.initState();
+  void calculator() {
+    // Calculate subtotal by summing the 'Price' values multiplied by 'quantity' for items
+    Subtotal = 0;
+    for (var item in items) {
+      Subtotal += (item['Price'] as int) * item['Quantity'] as int;
+    }
+
+    // Calculate Total by adding Subtotal and Delivery
+    Total = Subtotal + Delivery;
   }
 
   @override
   Widget build(BuildContext context) {
+    calculator();
     return Scaffold(
         // appBar: AppBar(
         //   leading: IconButton(
@@ -52,24 +63,42 @@ class _ShoppingCartState extends State<ShoppingCart> {
               child: ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                itemCount: AddtoCart.length,
+                itemCount: items.length,
                 padding: EdgeInsets.only(top: 5),
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
+                      setState(() {});
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => BuyScreen(
-                                    productname: Data[index]['name'],
-                                    productprice: Data[index]['Price'],
-                                    Imageontap: Data[index]["Image"],
+                                    productname: items[index]['name'],
+                                    productprice: items[index]['Price'],
+                                    Imageontap: items[index]["Image"],
                                   )));
                     },
                     child: CustomListTile(
-                      pprice: Data[index]['Price'],
-                      urlimage: Data[index]['Image'],
-                      text: Data[index]['name'],
+                      pprice: items[index]['Price'],
+                      urlimage: items[index]['Image'],
+                      text: items[index]['name'],
+                      pressedminus: () {
+                        setState(() {
+                          // Decrement quantity for the current item
+                          if (items[index]['Quantity'] > 0) {
+                            items[index]['Quantity']--;
+                            calculator(); // Recalculate when quantity changes
+                          }
+                        });
+                      },
+                      pressedplus: () {
+                        setState(() {
+                          // Increment quantity for the current item
+                          items[index]['Quantity']++;
+                          calculator(); // Recalculate when quantity changes
+                        });
+                      },
+                      quantitytext: (' ${items[index]['Quantity']}'),
                     ),
                   );
                 },
@@ -88,7 +117,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                           color: AppColors.black100,
                         ),
                         AppSmallText(
-                          text: "\$35.96",
+                          text: "$Subtotal",
                           color: AppColors.black100,
                           weight: FontWeight.bold,
                         ),
@@ -105,7 +134,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                           color: AppColors.black100,
                         ),
                         AppSmallText(
-                          text: "\$2.00",
+                          text: "$Delivery",
                           color: AppColors.black100,
                           weight: FontWeight.bold,
                         ),
@@ -122,7 +151,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                           color: AppColors.black100,
                         ),
                         AppSmallText(
-                          text: "\$37.96",
+                          text: "$Total",
                           color: AppColors.black100,
                           weight: FontWeight.bold,
                         ),

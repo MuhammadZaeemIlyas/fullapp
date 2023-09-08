@@ -179,13 +179,19 @@ class _CustomitemboxState extends State<Customitembox> {
 
 class CustomListTile extends StatefulWidget {
   final String text;
-  final String pprice;
+  final String quantitytext;
+  final int pprice;
+  final Function() pressedminus;
+  final Function() pressedplus;
   final String urlimage;
   const CustomListTile({
     super.key,
     required this.text,
     required this.pprice,
     required this.urlimage,
+    required this.pressedminus,
+    required this.pressedplus,
+    required this.quantitytext,
   });
 
   @override
@@ -206,11 +212,12 @@ class _CustomListTileState extends State<CustomListTile> {
       ),
       title:
           DefaultText(text: widget.text, color: AppColors.black100, size: 17),
-      subtitle: DefaultText(text: widget.pprice, color: AppColors.black100),
+      subtitle: DefaultText(
+          text: widget.pprice?.toString() ?? 'N/A', color: AppColors.black100),
       trailing: Wrap(
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: widget.pressedplus,
             icon: Icon(Icons.add),
           ),
           SizedBox(
@@ -219,7 +226,7 @@ class _CustomListTileState extends State<CustomListTile> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: DefaultText(
-              text: "2",
+              text: widget.quantitytext,
               size: 15,
               color: AppColors.black100,
             ),
@@ -227,7 +234,7 @@ class _CustomListTileState extends State<CustomListTile> {
           SizedBox(
             width: 5,
           ),
-          IconButton(onPressed: () {}, icon: Icon(Icons.remove))
+          IconButton(onPressed: widget.pressedminus, icon: Icon(Icons.remove))
         ],
       ),
     );
@@ -274,7 +281,7 @@ class AppButton extends StatelessWidget {
 class imagecard extends StatefulWidget {
   final String imagechahiye;
   final String? firstUnittext;
-  final String? pricetext;
+  final int? pricetext;
   final Function()? pressed;
   final String? itemname;
   final String? itemtype;
@@ -350,7 +357,7 @@ class _imagecardState extends State<imagecard> {
                       size: 16,
                       color: AppColors.black100),
                   AppSmallText(
-                    text: widget.pricetext!,
+                    text: widget.pricetext?.toString() ?? 'N/A',
                     color: AppColors.black100,
                     family: 'Manrope',
                     size: 18,
