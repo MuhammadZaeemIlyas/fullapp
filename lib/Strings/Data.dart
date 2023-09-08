@@ -80,5 +80,21 @@ List<Map> Data = [
     'Quantity': 1,
   },
 ];
-List<Map> AddtoCart = [{}];
+List<Map> Address = [
+  {
+    "home": 'Home',
+    "Address": '36 green way, Sunamganj',
+    "Status": 'Edit',
+  },
+  {
+    "home": 'Office',
+    "Address": 'Medical road, Halal lab, Sunamganj',
+    "Status": 'Edit',
+  },
+  {
+    "home": 'Ghar',
+    "Address": 'Medical road, Halal lab, Sunamganj',
+    "Status": 'Edit',
+  }
+];
 List<int> selectedIndices = [];

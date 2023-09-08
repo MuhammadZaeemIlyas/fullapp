@@ -23,7 +23,6 @@ class _HomeScreenState extends State<HomeScreen> {
   final List _screen = [
     Home(),
     Catedories(),
-    if (AddtoCart.isEmpty) Text("No items"),
     Favourite(),
     MoreScreen(),
   ];
