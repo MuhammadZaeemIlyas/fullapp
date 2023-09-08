@@ -52,3 +52,51 @@ class _CustomAppbarState extends State<CustomAppbar> {
     );
   }
 }
+class Stackbar extends StatefulWidget {
+  final String imagedo; 
+
+  const Stackbar({super.key, required this.imagedo});
+
+  @override
+  State<Stackbar> createState() => _StackbarState();
+}
+
+class _StackbarState extends State<Stackbar> {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.4,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                        image: NetworkImage(widget.imagedo),
+                        fit: BoxFit.cover,
+                        filterQuality: FilterQuality.high,
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 20, // Adjust the top position as needed
+                  left: 20, // Adjust the left position as needed
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: AppColors.black1),
+                    child: IconButton(
+                      icon: Icon(Icons.arrow_back_ios_sharp, size: 15),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            );
+  }
+}
