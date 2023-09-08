@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:mini_ui_project/constan/appColors.dart';
+import 'package:mini_ui_project/widget/appSmallText.dart';
 
 class AddressContainer extends StatefulWidget {
   final bool isSelected;
   final ValueChanged<bool> onSelect;
-
+  final String Maintext;
+  final String address;
+  final String state;
+  
+  
   const AddressContainer({
     Key? key,
     required this.isSelected,
-    required this.onSelect,
+    required this.onSelect, required this.Maintext, required this.address, required this.state,
   }) : super(key: key);
 
   @override
@@ -42,7 +47,7 @@ class _AddressContainerState extends State<AddressContainer> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Home', style: TextStyle(fontWeight: FontWeight.bold)),
+                    AppSmallText(text: widget.Maintext,size: 20,color: AppColors.black100,weight: FontWeight.bold),
                     widget.isSelected
                         ? Container(
                             width: 24,
@@ -77,8 +82,8 @@ class _AddressContainerState extends State<AddressContainer> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('123 Main St'),
-                    Text('City, Country'),
+                    AppSmallText(text: widget.address,color: AppColors.black100,family: "Manrope",size: 15,),
+                    AppSmallText(text: widget.state,color: AppColors.blue,family: "Manrope",size: 17,),
                   ],
                 ),
               ],

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mini_ui_project/Strings/Data.dart';
 import 'package:mini_ui_project/constan/appColors.dart';
 import 'package:mini_ui_project/constan/appIcons.dart';
+import 'package:mini_ui_project/screens/Address/Address_Screen.dart';
 import 'package:mini_ui_project/screens/BuyScreen.dart';
 import 'package:mini_ui_project/screens/home.dart';
 import 'package:mini_ui_project/widget/Customwidgets.dart';
@@ -151,7 +152,9 @@ class _ShoppingCartState extends State<ShoppingCart> {
                 padding: const EdgeInsets.only(top: 15),
                 child: Customcalculator(
                     BtnText: "Proceed to checkout",
-                    buttonpressed: () {},
+                    buttonpressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>AddressScreen()));
+                    },
                     text1: 'Subtotal',
                     text2: '$Subtotal',
                     text3: 'Delivery',
