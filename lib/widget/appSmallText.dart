@@ -11,7 +11,7 @@ class AppSmallText extends StatelessWidget {
       required this.text,
       this.color = Colors.white,
       this.size,
-      this.family,
+      this.family = 'Manrope',
       this.weight});
 
   @override

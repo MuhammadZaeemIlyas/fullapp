@@ -23,14 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List _screen = [
     Home(),
     Catedories(),
-    if (AddtoCart.isEmpty)
-      Text("No items") // Show this when AddtoCart is empty
-    else
-      ShoppingCart(
-          // simageurl: AddtoCart.isNotEmpty ? AddtoCart[0]['Image'].toString() : '',
-          // sitemname: AddtoCart.isNotEmpty ? AddtoCart[0]['name'].toString() : '',
-          // sprice: AddtoCart.isNotEmpty ? AddtoCart[0]['Price'].toString() : '',
-          ),
+    if (AddtoCart.isEmpty) Text("No items"),
     Favourite(),
     MoreScreen(),
   ];
@@ -56,10 +49,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Icon(
             Icons.category,
-            color: AppColors.iconcolor,
-          ),
-          Icon(
-            Icons.shopping_bag,
             color: AppColors.iconcolor,
           ),
           Icon(

@@ -70,7 +70,14 @@ class _HomeState extends State<Home> {
                         size: 22,
                         family: "Manrope",
                       ),
-                      trailing: AppIcons.bag,
+                      trailing: IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => ShoppingCart())));
+                          },
+                          icon: Icon(Icons.shopping_bag)),
                       iconColor: AppColors.black1,
                     ),
                     const SizedBox(
@@ -204,64 +211,61 @@ class _HomeState extends State<Home> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.02,
               ),
-              GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 200,
-                    mainAxisExtent: 300,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 50),
-                itemCount: Data.length,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                      onTap: () async {
-                        setState(() {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => BuyScreen(
-                                        Imageontap: Data[index]["Image"],
-                                        productname: Data[index]["name"],
-                                        productprice: Data[index]["Price"],
-                                      )));
-                        });
-                      },
-                      child: imagecard(
-                        imagechahiye: Data[index]['Image'],
-                        firstUnittext: 'Unit',
-                        itemname: Data[index]['name'],
-                        itemtype: Data[index]['object type'],
-                        pricetext: Data[index]['Price'],
-                        pressed: () {
+              Padding(
+                padding: const EdgeInsets.only(right: 12, left: 12),
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 200,
+                      mainAxisExtent: 300,
+                      crossAxisSpacing: 5,
+                      mainAxisSpacing: 50),
+                  itemCount: Data.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                        onTap: () async {
                           setState(() {
-                            // if (index >= 0 && index < AddtoCart.length) {
-                            //   // Check if the index is within the valid range
-                            //   AddtoCart.add(Data[index]);
-
-                            items.add(Data[index]);
-                            // items = [
-                            //   {
-                            //     'name': Data[index]['name'],
-                            //     'Image': Data[index]['Image'],
-                            //     'Price': Data[index]['Price'],
-                            //   }
-                            // ];
-                            print('afdsafasdfhello');
-                            print(items);
-
-                            // ShoppingCart(
-                            //     sitemname: Data[index]['name'],
-                            //     sprice: Data[index]['Price'],
-                            //     simageurl: Data[index]['Image']);
-                            // } else {
-                            //   // Handle the case where index is out of bounds
-                            //   print('Index out of bounds: $index');
-                            // }
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => BuyScreen(
+                                          Imageontap: Data[index]["Image"],
+                                          productname: Data[index]["name"],
+                                          productprice: Data[index]["Price"],
+                                        )));
                           });
                         },
-                      ));
-                },
+                        child: imagecard(
+                          imagechahiye: Data[index]['Image'],
+                          firstUnittext: 'Price',
+                          itemname: Data[index]['name'],
+                          itemtype: Data[index]['object type'],
+                          pricetext: Data[index]['Price'],
+                          pressed: () {
+                            setState(() {
+                              if (items.contains(Data[index])) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      content: AppSmallText(
+                                    text: 'Already Added',
+                                  )),
+                                );
+                              } else {
+                                items.add(Data[index]);
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      content: AppSmallText(
+                                    text: 'Item Added in Cart',
+                                  )),
+                                );
+                                print(items);
+                              }
+                            });
+                          },
+                        ));
+                  },
+                ),
               )
             ],
           ),

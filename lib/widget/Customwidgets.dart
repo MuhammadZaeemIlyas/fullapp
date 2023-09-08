@@ -345,8 +345,8 @@ class _imagecardState extends State<imagecard> {
           ),
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-            ),
+                borderRadius: BorderRadius.circular(20),
+                color: AppColors.black10),
             child: Padding(
               padding: const EdgeInsets.only(right: 10, left: 12),
               child: Row(
@@ -383,6 +383,116 @@ class _imagecardState extends State<imagecard> {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class Customcalculator extends StatefulWidget {
+  final String text1;
+  final String text2;
+  final String text3;
+  final String text4;
+  final String text5;
+  final String text6;
+  final Function() buttonpressed;
+  final String BtnText;
+  const Customcalculator(
+      {super.key,
+      required this.text1,
+      required this.text2,
+      required this.text3,
+      required this.text4,
+      required this.text5,
+      required this.text6,
+      required this.buttonpressed,
+      required this.BtnText});
+
+  @override
+  State<Customcalculator> createState() => _CustomcalculatorState();
+}
+
+class _CustomcalculatorState extends State<Customcalculator> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.9,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20), color: AppColors.black10),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppSmallText(
+                  text: widget.text1,
+                  family: "Manrope",
+                  color: AppColors.black100,
+                ),
+                AppSmallText(
+                  text: widget.text2,
+                  family: "Manrope",
+                  color: AppColors.black100,
+                  weight: FontWeight.bold,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 7,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppSmallText(
+                  text: widget.text3,
+                  family: "Manrope",
+                  color: AppColors.black100,
+                ),
+                AppSmallText(
+                  text: widget.text4,
+                  family: "Manrope",
+                  color: AppColors.black100,
+                  weight: FontWeight.bold,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 7,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppSmallText(
+                  family: "Manrope",
+                  text: widget.text5,
+                  color: AppColors.black100,
+                ),
+                AppSmallText(
+                  family: "Manrope",
+                  text: widget.text6,
+                  color: AppColors.black100,
+                  weight: FontWeight.bold,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            SizedBox(
+                width: MediaQuery.of(context).size.width * 0.8,
+                height: MediaQuery.of(context).size.height * 0.09,
+                child: AppButton(
+                  pressed: widget.buttonpressed,
+                  text: widget.BtnText,
+                  color: AppColors.black1,
+                  family: 'Manrope',
+                  weight: FontWeight.bold,
+                  size: 15,
+                )),
+          ],
+        ),
       ),
     );
   }
