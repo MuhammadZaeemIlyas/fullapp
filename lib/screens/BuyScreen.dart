@@ -53,67 +53,84 @@ class _BuyScreenState extends State<BuyScreen> {
             height: 10,
           ),
           Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    AppSmallText(
-                      text: widget.productname,
-                      size: 25,
-                      family: "Manrope",
-                      weight: FontWeight.bold,
-                      color: AppColors.black100,
-                    ),
-                    SizedBox(width: 20,),
-                 AppSmallText(
-                  text: widget.productprice?.toString() ?? 'N/A',
-                  size: 25,
-                  weight: FontWeight.bold,
-                  family: "Manrope",
-                  color: AppColors.blue,
-                ),
-                  ],
-                ),
-                Container(
-                  alignment: Alignment.bottomCenter,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.5,
-                        height: MediaQuery.of(context).size.height * 0.09,
-                        child: ElevatedButton(
-                            onPressed: () {},
-                            child: AppSmallText(
-                                text: 'Add to Cart',
-                                family: "Manrope",
-                                color: AppColors.blue,
-                                size: 15),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  side: BorderSide(color: AppColors.blue),
-                                  borderRadius: BorderRadius.circular(20)),
-                              fixedSize: Size(MediaQuery.of(context).size.width,
-                                  MediaQuery.of(context).size.height),
-                            )),
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          height: MediaQuery.of(context).size.height * 0.09,
-                          child: AppButton(
-                            family: "Manrope",
-                            size: 15,
-                            weight: FontWeight.bold,
-                            text: 'Buy Now',
-                            color: AppColors.black1,
-                            pressed: () {},
-                          ))
-                    ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AppSmallText(
+                    text: widget.productname,
+                    size: 25,
+                    family: "Manrope",
+                    weight: FontWeight.bold,
+                    color: AppColors.black100,
                   ),
-                )
-              ],
+                  SizedBox(width: 20,),
+                   AppSmallText(
+                    text: widget.productprice?.toString() ?? 'N/A',
+                    size: 25,
+                    weight: FontWeight.bold,
+                    family: "Manrope",
+                    color: AppColors.blue,
+                  ),
+                  Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppSmallText(text: 'Details',color: AppColors.black100,size: 25,family: 'Manrope',),
+                         SizedBox(height: 7,),
+                         Padding(
+                           padding: const EdgeInsets.symmetric(horizontal:2),
+                           child: AppSmallText(text: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo.'
+                           ,color: AppColors.black100,size: 15,),
+                         )
+                     
+                      ],
+                    ),
+
+                  ),
+                  SizedBox(height: 7,),
+                  Container(
+             
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.4,
+                          height: MediaQuery.of(context).size.height * 0.09,
+                          child: ElevatedButton(
+                              onPressed: () {},
+                              child: AppSmallText(
+                                  text: 'Add to Cart',
+                                  family: "Manrope",
+                                  color: AppColors.blue,
+                                  size: 15),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    side: BorderSide(color: AppColors.blue),
+                                    borderRadius: BorderRadius.circular(20)),
+                                fixedSize: Size(MediaQuery.of(context).size.width,
+                                    MediaQuery.of(context).size.height),
+                              )),
+                        ),
+            
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.45,
+                            height: MediaQuery.of(context).size.height * 0.09,
+                            child: AppButton(
+                              family: "Manrope",
+                              size: 15,
+                              weight: FontWeight.bold,
+                              text: 'Buy Now',
+                              color: AppColors.black1,
+                              pressed: () {},
+                            ))
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ],
