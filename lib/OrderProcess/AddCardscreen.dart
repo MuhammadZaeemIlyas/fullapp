@@ -18,75 +18,77 @@ class _AddCardscreenState extends State<AddCardscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              child: Column(
-                children: [
-                  CustomAppbar(
-                    bartitle: "Add Card",
-                  ),
-                  SizedBox(
-                    height: 7,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 30),
-                    child: Container(
-                      child: Column(
-                        children: [
-                          CustomTextfield(
-                            title: "CARD HOLDER NAME",
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          CustomTextfield(
-                            title: "CARD NUMBER",
-                          ),
-                        ],
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            children: [
+              Container(
+                child: Column(
+                  children: [
+                    CustomAppbar(
+                      bartitle: "Add Card",
+                    ),
+                    SizedBox(
+                      height: 7,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 30, vertical: 30),
+                      child: Container(
+                        child: Column(
+                          children: [
+                            CustomTextfield(
+                              title: "CARD HOLDER NAME",
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            CustomTextfield(
+                              title: "CARD NUMBER",
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 35),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Flexible(child: CustomTextfield(title: "EXP DATE")),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Flexible(
-                      child: CustomTextfield(
-                    title: "CVC",
-                  )),
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 35),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(child: CustomTextfield(title: "EXP DATE")),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Flexible(
+                        child: CustomTextfield(
+                      title: "CVC",
+                    )),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.20,
-            ),
-            Customcalculator(
-                text1: 'Subtotal',
-                text2: '$Subtotal',
-                text3: 'Delivery',
-                text4: '$Delivery',
-                text5: 'Total',
-                text6: '$Total',
-                buttonpressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ShowOrder(),
-                      ));
-                },
-                BtnText: 'Make Payment')
-          ],
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.20,
+              ),
+              Customcalculator(
+                  text1: 'Subtotal',
+                  text2: '$Subtotal',
+                  text3: 'Delivery',
+                  text4: '$Delivery',
+                  text5: 'Total',
+                  text6: '$Total',
+                  buttonpressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ShowOrder(),
+                        ));
+                  },
+                  BtnText: 'Make Payment')
+            ],
+          ),
         ),
       ),
     );

@@ -39,7 +39,7 @@ class Customwidgets extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.only(top: 15, left: 25, right: 15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -50,9 +50,11 @@ class Customwidgets extends StatelessWidget {
                   size: 35,
                   weight: FontWeight.bold,
                 ),
-                DefaultText(
-                  text: text3!,
-                  size: 17,
+                Expanded(
+                  child: DefaultText(
+                    text: text3!,
+                    size: 17,
+                  ),
                 )
               ],
             ),
@@ -326,12 +328,22 @@ class _imagecardState extends State<imagecard> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppSmallText(
-                  text: widget.itemname!,
-                  family: "Manrope",
-                  size: 20,
-                  color: AppColors.black100,
-                  weight: FontWeight.bold,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: AppSmallText(
+                        text: widget.itemname!,
+                        family: "Manrope",
+                        size: 20,
+                        color: AppColors.black100,
+                        weight: FontWeight.bold,
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.favorite_border_rounded))
+                  ],
                 ),
                 AppSmallText(
                   text: widget.itemtype!,

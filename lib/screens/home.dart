@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mini_ui_project/Strings/Data.dart';
 import 'package:mini_ui_project/constan/appColors.dart';
 import 'package:mini_ui_project/constan/appIcons.dart';
@@ -57,7 +58,7 @@ class _HomeState extends State<Home> {
                                 MaterialPageRoute(
                                     builder: ((context) => ShoppingCart())));
                           },
-                          icon: Icon(Icons.shopping_bag)),
+                          icon: SvgPicture.asset('assets/images/bag.svg')),
                       iconColor: AppColors.black1,
                     ),
                     const SizedBox(

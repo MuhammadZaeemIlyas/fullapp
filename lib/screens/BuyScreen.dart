@@ -43,7 +43,6 @@ class _BuyScreenState extends State<BuyScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  //  height: MediaQuery.of(context).size.height * 0.8,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       color: AppColors.black10),
@@ -144,33 +143,34 @@ class _BuyScreenState extends State<BuyScreen> {
                               color: AppColors.black100,
                               family: "Manrope",
                             )),
-                        Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.09,
-                                child: ElevatedButton(
-                                    onPressed: () {},
-                                    child: DefaultText(
-                                        text: 'Add to Cart',
-                                        color: AppColors.blue,
-                                        size: 15),
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.white,
-                                      shape: RoundedRectangleBorder(
-                                          side:
-                                              BorderSide(color: AppColors.blue),
-                                          borderRadius:
-                                              BorderRadius.circular(20)),
-                                      fixedSize: Size(
-                                          MediaQuery.of(context).size.width,
-                                          MediaQuery.of(context).size.height),
-                                    )),
-                              ),
-                              SizedBox(
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.4,
+                              height: MediaQuery.of(context).size.height * 0.09,
+                              child: ElevatedButton(
+                                  onPressed: () {},
+                                  child: DefaultText(
+                                      text: 'Add to Cart',
+                                      color: AppColors.blue,
+                                      size: 15),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                        side: BorderSide(color: AppColors.blue),
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                    fixedSize: Size(
+                                        MediaQuery.of(context).size.width,
+                                        MediaQuery.of(context).size.height),
+                                  )),
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Expanded(
+                              child: SizedBox(
                                   width:
                                       MediaQuery.of(context).size.width * 0.45,
                                   height:
@@ -188,9 +188,9 @@ class _BuyScreenState extends State<BuyScreen> {
                                               builder: (context) =>
                                                   ShoppingCart()));
                                     },
-                                  ))
-                            ],
-                          ),
+                                  )),
+                            )
+                          ],
                         )
                       ],
                     ),

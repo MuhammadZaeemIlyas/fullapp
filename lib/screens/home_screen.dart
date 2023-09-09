@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
             color: AppColors.iconcolor,
           ),
           Icon(
-            Icons.category,
+            Icons.category_rounded,
             color: AppColors.iconcolor,
           ),
           Icon(

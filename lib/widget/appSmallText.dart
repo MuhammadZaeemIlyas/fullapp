@@ -17,6 +17,7 @@ class AppSmallText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
+      maxLines: 10,
       text,
       style: TextStyle(
         color: color,

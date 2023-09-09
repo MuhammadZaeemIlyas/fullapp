@@ -102,7 +102,7 @@ class _OrderlisttileState extends State<Orderlisttile> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 12, left: 65),
+          padding: const EdgeInsets.only(top: 12, left: 35),
           child: Row(
             children: [
               Stack(

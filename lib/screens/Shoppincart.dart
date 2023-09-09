@@ -153,10 +153,15 @@ class _ShoppingCartState extends State<ShoppingCart> {
                 child: Customcalculator(
                     BtnText: "Proceed to checkout",
                     buttonpressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => AddressScreen()));
+                      items.isEmpty
+                          ? ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: AppSmallText(
+                              text: 'Please Buy Something to proceed',
+                            )))
+                          : Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AddressScreen()));
                     },
                     text1: 'Subtotal',
                     text2: '$Subtotal',
