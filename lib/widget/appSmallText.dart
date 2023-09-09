@@ -22,6 +22,7 @@ class AppSmallText extends StatelessWidget {
         color: color,
         fontSize: size,
         fontWeight: weight,
+        fontFamily: family,
       ),
     );
   }

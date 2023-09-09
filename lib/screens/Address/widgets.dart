@@ -8,12 +8,14 @@ class AddressContainer extends StatefulWidget {
   final String Maintext;
   final String address;
   final String state;
-  
-  
+
   const AddressContainer({
     Key? key,
     required this.isSelected,
-    required this.onSelect, required this.Maintext, required this.address, required this.state,
+    required this.onSelect,
+    required this.Maintext,
+    required this.address,
+    required this.state,
   }) : super(key: key);
 
   @override
@@ -24,14 +26,14 @@ class _AddressContainerState extends State<AddressContainer> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.symmetric(vertical: 2),
       child: GestureDetector(
         onTap: () {
           widget.onSelect(!widget.isSelected);
         },
         child: Container(
           width: MediaQuery.of(context).size.width * 0.9,
-          height: MediaQuery.of(context).size.height * 0.15,
+          height: MediaQuery.of(context).size.height * 0.17,
           decoration: BoxDecoration(
             border: Border.all(
               color: widget.isSelected ? Colors.green : Colors.grey,
@@ -47,7 +49,11 @@ class _AddressContainerState extends State<AddressContainer> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    AppSmallText(text: widget.Maintext,size: 20,color: AppColors.black100,weight: FontWeight.bold),
+                    AppSmallText(
+                        text: widget.Maintext,
+                        size: 20,
+                        color: AppColors.black100,
+                        weight: FontWeight.bold),
                     widget.isSelected
                         ? Container(
                             width: 24,
@@ -82,8 +88,18 @@ class _AddressContainerState extends State<AddressContainer> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    AppSmallText(text: widget.address,color: AppColors.black100,family: "Manrope",size: 15,),
-                    AppSmallText(text: widget.state,color: AppColors.blue,family: "Manrope",size: 17,),
+                    AppSmallText(
+                      text: widget.address,
+                      color: AppColors.black100,
+                      family: "Manrope",
+                      size: 15,
+                    ),
+                    AppSmallText(
+                      text: widget.state,
+                      color: AppColors.blue,
+                      family: "Manrope",
+                      size: 17,
+                    ),
                   ],
                 ),
               ],
