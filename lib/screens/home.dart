@@ -19,35 +19,15 @@ class Home extends StatefulWidget {
 }
 
 List<Map> items = [];
+
+List<Map> Orders = [];
+
 int v = 0;
 int amount = 2;
 int fixedamount = 12;
 int result = 12;
 
 class _HomeState extends State<Home> {
-  Future<void> saveSelectedItem(Map<String, String> selectedItem) async {
-    final prefs = await SharedPreferences.getInstance();
-
-    // Convert the selected item to JSON (or any format you prefer)
-    final selectedItemJson = json.encode(selectedItem);
-
-    // Save the JSON string representing the selected item
-    await prefs.setString('selectedItem', selectedItemJson);
-  }
-
-  Future<void> loadSelectedIndices() async {
-    final prefs = await SharedPreferences.getInstance();
-    final loadedIndices = prefs.getString('selectedIndices');
-    if (loadedIndices != null) {
-      final indexList =
-          loadedIndices.split(',').map((e) => int.tryParse(e)).toList();
-      setState(() {
-        selectedIndices =
-            indexList.where((element) => element != null).cast<int>().toList();
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

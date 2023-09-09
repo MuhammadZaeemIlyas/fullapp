@@ -152,8 +152,11 @@ class _ShoppingCartState extends State<ShoppingCart> {
                 padding: const EdgeInsets.only(top: 15),
                 child: Customcalculator(
                     BtnText: "Proceed to checkout",
-                    buttonpressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>AddressScreen()));
+                    buttonpressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AddressScreen()));
                     },
                     text1: 'Subtotal',
                     text2: '$Subtotal',

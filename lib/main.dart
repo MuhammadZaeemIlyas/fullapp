@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mini_ui_project/OrderProcess/AddCardscreen.dart';
+import 'package:mini_ui_project/OrderProcess/Showorder.dart';
 import 'package:mini_ui_project/get_started.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:mini_ui_project/screens/Address/Address_Screen.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AddCardscreen(),
+      home: GetStarted(),
     );
   }
 }

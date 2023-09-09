@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mini_ui_project/Appicons/Appbar.dart';
+import 'package:mini_ui_project/OrderProcess/Showorder.dart';
 import 'package:mini_ui_project/OrderProcess/Widgets/widgets.dart';
 import 'package:mini_ui_project/constan/appColors.dart';
 import 'package:mini_ui_project/screens/Shoppincart.dart';
@@ -77,7 +78,13 @@ class _AddCardscreenState extends State<AddCardscreen> {
                 text4: '$Delivery',
                 text5: 'Total',
                 text6: '$Total',
-                buttonpressed: () {},
+                buttonpressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ShowOrder(),
+                      ));
+                },
                 BtnText: 'Make Payment')
           ],
         ),

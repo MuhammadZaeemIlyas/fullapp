@@ -6,6 +6,10 @@ List<Map> Data = [
     "object type": "Fruit",
     "Price": 12,
     'Quantity': 1,
+    "riderimage":
+        'https://images.pexels.com/photos/6170398/pexels-photo-6170398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    'Ordertext': 'Your Berries are on the way',
+    'ridername': 'Shahzad',
   },
   {
     "name": "Berries",
@@ -14,6 +18,10 @@ List<Map> Data = [
     "object type": "Fruit",
     "Price": 35,
     'Quantity': 1,
+    "riderimage":
+        'https://images.pexels.com/photos/6170398/pexels-photo-6170398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    'Ordertext': 'Your Berries are on the way',
+    'ridername': 'Shahzad',
   },
   {
     "name": "Pineapple",
@@ -22,6 +30,10 @@ List<Map> Data = [
     "object type": "Fruit",
     "Price": 44,
     'Quantity': 1,
+    "riderimage":
+        'https://images.pexels.com/photos/6170398/pexels-photo-6170398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    'Ordertext': 'Your Berries are on the way',
+    'ridername': 'Shahzad',
   },
   {
     "name": "Mango",
@@ -30,6 +42,10 @@ List<Map> Data = [
     "object type": "Fruit",
     "Price": 10,
     'Quantity': 1,
+    "riderimage":
+        'https://images.pexels.com/photos/6170398/pexels-photo-6170398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    'Ordertext': 'Your Berries are on the way',
+    'ridername': 'Shahzad',
   },
   {
     "name": "Mix Vegetables",
@@ -38,6 +54,10 @@ List<Map> Data = [
     "object type": "Vegetables",
     "Price": 50,
     'Quantity': 1,
+    "riderimage":
+        'https://images.pexels.com/photos/6170398/pexels-photo-6170398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    'Ordertext': 'Your Berries are on the way',
+    'ridername': 'Shahzad',
   },
   {
     "name": "Strawberry",
@@ -46,6 +66,10 @@ List<Map> Data = [
     "object type": "Fruit",
     "Price": 10,
     'Quantity': 1,
+    "riderimage":
+        'https://images.pexels.com/photos/6170398/pexels-photo-6170398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    'Ordertext': 'Your Berries are on the way',
+    'ridername': 'Shahzad',
   },
   {
     "name": "Apricots",
@@ -54,6 +78,10 @@ List<Map> Data = [
     "object type": "Fruit",
     "Price": 10,
     'Quantity': 1,
+    "riderimage":
+        'https://images.pexels.com/photos/6170398/pexels-photo-6170398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    'Ordertext': 'Your Berries are on the way',
+    'ridername': 'Shahzad',
   },
   {
     "name": "Mix",
@@ -62,6 +90,10 @@ List<Map> Data = [
     "object type": "Fruits",
     "Price": 10,
     'Quantity': 1,
+    "riderimage":
+        'https://images.pexels.com/photos/6170398/pexels-photo-6170398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    'Ordertext': 'Your Berries are on the way',
+    'ridername': 'Shahzad',
   },
   {
     "name": "Cherries",
@@ -70,6 +102,10 @@ List<Map> Data = [
     "object type": "Fruit",
     "Price": 40,
     'Quantity': 1,
+    "riderimage":
+        'https://images.pexels.com/photos/6170398/pexels-photo-6170398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    'Ordertext': 'Your Berries are on the way',
+    'ridername': 'Shahzad',
   },
   {
     "name": "Banana",
@@ -78,6 +114,10 @@ List<Map> Data = [
     "object type": "Fruit",
     "Price": 40,
     'Quantity': 1,
+    "riderimage":
+        'https://images.pexels.com/photos/6170398/pexels-photo-6170398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    'Ordertext': 'Your Berries are on the way',
+    'ridername': 'Shahzad',
   },
 ];
 List<Map> Address = [
