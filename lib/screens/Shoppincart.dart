@@ -39,14 +39,6 @@ class _ShoppingCartState extends State<ShoppingCart> {
   Widget build(BuildContext context) {
     calculator();
     return Scaffold(
-        // appBar: AppBar(
-        //   leading: IconButton(
-        //     onPressed: () {
-        //       Navigator.pop(context);
-        //     },
-        //     icon: Icon(Icons.arrow_back_ios_new),
-        //   ),
-        // ),
         body: SafeArea(
       child: SingleChildScrollView(
         child: Column(

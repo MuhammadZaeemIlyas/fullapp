@@ -51,14 +51,16 @@ class _HomeState extends State<Home> {
                         size: 22,
                         family: "Manrope",
                       ),
-                      trailing: IconButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) => ShoppingCart())));
-                          },
-                          icon: SvgPicture.asset('assets/images/bag.svg')),
+                      trailing: ShoppingBagWithBadge(
+                        buttonpressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ShoppingCart()));
+                        },
+                        badgeCount: items.length,
+                        icon1: SvgPicture.asset('assets/images/bag.svg'),
+                      ),
                       iconColor: AppColors.black1,
                     ),
                     const SizedBox(

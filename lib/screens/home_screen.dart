@@ -20,12 +20,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectIndex = 0;
 
-  final List _screen = [
-    Home(),
-    Catedories(),
-    Favourite(),
-    MoreScreen(),
-  ];
+  final List _screen = [Home(), ShoppingCart(), Favourite(), MoreScreen()];
 
   @override
   Widget build(BuildContext context) {
@@ -43,19 +38,19 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         items: [
           Icon(
-            Icons.home,
+            Icons.home_outlined,
             color: AppColors.iconcolor,
           ),
           Icon(
-            Icons.category_rounded,
+            Icons.shopping_cart_outlined,
             color: AppColors.iconcolor,
           ),
           Icon(
-            Icons.favorite,
+            Icons.favorite_outline_rounded,
             color: AppColors.iconcolor,
           ),
           Icon(
-            Icons.more_vert_outlined,
+            Icons.person_2_outlined,
             color: AppColors.iconcolor,
           ),
         ],

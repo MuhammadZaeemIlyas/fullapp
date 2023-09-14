@@ -509,3 +509,54 @@ class _CustomcalculatorState extends State<Customcalculator> {
     );
   }
 }
+
+class ShoppingBagWithBadge extends StatefulWidget {
+  final Widget icon1;
+  final int badgeCount;
+  final Function() buttonpressed;
+
+  ShoppingBagWithBadge({
+    required this.icon1,
+    required this.badgeCount,
+    required this.buttonpressed,
+  });
+
+  @override
+  State<ShoppingBagWithBadge> createState() => _ShoppingBagWithBadgeState();
+}
+
+class _ShoppingBagWithBadgeState extends State<ShoppingBagWithBadge> {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        IconButton(
+            onPressed: widget.buttonpressed, icon: widget.icon1, iconSize: 25),
+        Positioned(
+          top: 2,
+          right: 2,
+          child: Container(
+            padding: EdgeInsets.all(4),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.red,
+            ),
+            constraints: BoxConstraints(
+              minWidth: 20,
+              minHeight: 20,
+            ),
+            child: Center(
+              child: Text(
+                widget.badgeCount.toString(),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
