@@ -5,8 +5,9 @@ import 'package:mini_ui_project/widget/appSmallText.dart';
 
 class CustomAppbar extends StatefulWidget {
   final String bartitle;
-
-  const CustomAppbar({Key? key, required this.bartitle}) : super(key: key);
+  final Function() Appback;
+  const CustomAppbar({Key? key, required this.bartitle, required this.Appback})
+      : super(key: key);
 
   @override
   State<CustomAppbar> createState() => _CustomAppbarState();
@@ -28,11 +29,8 @@ class _CustomAppbarState extends State<CustomAppbar> {
                   color: AppColors.black1,
                 ),
                 child: IconButton(
-                  icon: Icon(Icons.arrow_back_ios_sharp, size: 15),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
+                    icon: Icon(Icons.arrow_back_ios_sharp, size: 15),
+                    onPressed: widget.Appback),
               ),
               Expanded(
                 child: Padding(

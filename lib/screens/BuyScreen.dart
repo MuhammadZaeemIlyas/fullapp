@@ -186,7 +186,11 @@ class _BuyScreenState extends State<BuyScreen> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  ShoppingCart()));
+                                                  ShoppingCart(
+                                                    onbackchahiye: () {
+                                                      Navigator.pop(context);
+                                                    },
+                                                  )));
                                     },
                                   )),
                             )

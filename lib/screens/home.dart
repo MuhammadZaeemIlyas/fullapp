@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mini_ui_project/Strings/Data.dart';
+import 'package:mini_ui_project/MainData/Data.dart';
 import 'package:mini_ui_project/constan/appColors.dart';
 import 'package:mini_ui_project/constan/appIcons.dart';
 import 'package:mini_ui_project/screens/BuyScreen.dart';
@@ -68,7 +68,11 @@ class _HomeState extends State<Home> {
                           await Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => ShoppingCart()));
+                                  builder: (context) => ShoppingCart(
+                                        onbackchahiye: () {
+                                          Navigator.pop(context);
+                                        },
+                                      )));
                           setState(() {});
                         },
                         badgeCount: items.length,

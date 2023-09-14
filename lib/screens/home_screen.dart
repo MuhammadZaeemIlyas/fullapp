@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mini_ui_project/Appicons/my_flutter_app_icons.dart';
-import 'package:mini_ui_project/Strings/Data.dart';
+import 'package:mini_ui_project/OrderProcess/Showorder.dart';
+import 'package:mini_ui_project/MainData/Data.dart';
 import 'package:mini_ui_project/constan/appColors.dart';
 import 'package:mini_ui_project/screens/Shoppincart.dart';
 import 'package:mini_ui_project/screens/categories.dart';
-import 'package:mini_ui_project/screens/favourite.dart';
+import 'package:mini_ui_project/screens/favorite/favourite.dart';
 import 'package:mini_ui_project/screens/home.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:mini_ui_project/screens/more.dart';
@@ -20,7 +21,18 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectIndex = 0;
 
-  final List _screen = [Home(), ShoppingCart(), Favourite(), MoreScreen()];
+  final List _screen = [
+    Home(),
+    ShoppingCart(onbackchahiye: () {
+      print('shopback');
+    }),
+    Favourite(),
+    ShowOrder(
+      backshow: () {
+        print("back pressed");
+      },
+    )
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
             color: AppColors.iconcolor,
           ),
           Icon(
-            Icons.person_2_outlined,
+            Icons.local_shipping_outlined,
             color: AppColors.iconcolor,
           ),
         ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mini_ui_project/Strings/Data.dart';
+import 'package:mini_ui_project/MainData/Data.dart';
 import 'package:mini_ui_project/constan/appColors.dart';
 import 'package:mini_ui_project/constan/appIcons.dart';
 import 'package:mini_ui_project/screens/Address/Address_Screen.dart';
@@ -10,8 +10,11 @@ import 'package:mini_ui_project/widget/Customwidgets.dart';
 import 'package:mini_ui_project/widget/appSmallText.dart';
 
 class ShoppingCart extends StatefulWidget {
+  final Function() onbackchahiye;
+
   const ShoppingCart({
     super.key,
+    required this.onbackchahiye,
   });
 
   @override
@@ -25,13 +28,11 @@ int quantity = 0;
 
 class _ShoppingCartState extends State<ShoppingCart> {
   void calculator() {
-    // Calculate subtotal by summing the 'Price' values multiplied by 'quantity' for items
     Subtotal = 0;
     for (var item in items) {
       Subtotal += (item['Price'] as int) * item['Quantity'] as int;
     }
 
-    // Calculate Total by adding Subtotal and Delivery
     Total = Subtotal + Delivery;
   }
 
@@ -61,17 +62,15 @@ class _ShoppingCartState extends State<ShoppingCart> {
                   ),
                 ),
                 Positioned(
-                  top: 8, // Adjust the top position as needed
-                  left: 8, // Adjust the left position as needed
+                  top: 8,
+                  left: 8,
                   child: Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
                         color: AppColors.black1),
                     child: IconButton(
                       icon: Icon(Icons.arrow_back_ios_sharp, size: 15),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
+                      onPressed: widget.onbackchahiye,
                     ),
                   ),
                 ),

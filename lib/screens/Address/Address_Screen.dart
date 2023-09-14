@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mini_ui_project/Appicons/Appbar.dart';
 import 'package:mini_ui_project/OrderProcess/AddCardscreen.dart';
-import 'package:mini_ui_project/Strings/Data.dart';
+import 'package:mini_ui_project/MainData/Data.dart';
 import 'package:mini_ui_project/constan/appColors.dart';
 import 'package:mini_ui_project/screens/Address/widgets.dart';
 import 'package:mini_ui_project/widget/Customwidgets.dart';
@@ -25,6 +25,9 @@ class _AddressScreenState extends State<AddressScreen> {
           child: Column(
             children: [
               CustomAppbar(
+                Appback: () {
+                  Navigator.pop(context);
+                },
                 bartitle: "Checkout",
               ),
               ListView.builder(

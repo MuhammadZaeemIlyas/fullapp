@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mini_ui_project/Appicons/Appbar.dart';
 import 'package:mini_ui_project/OrderProcess/Widgets/widgets.dart';
-import 'package:mini_ui_project/Strings/Data.dart';
+import 'package:mini_ui_project/MainData/Data.dart';
 import 'package:mini_ui_project/constan/appColors.dart';
 import 'package:mini_ui_project/screens/Shoppincart.dart';
 import 'package:mini_ui_project/screens/home.dart';
@@ -9,26 +9,15 @@ import 'package:mini_ui_project/widget/Customwidgets.dart';
 import 'package:mini_ui_project/widget/appSmallText.dart';
 
 class ShowOrder extends StatefulWidget {
-  const ShowOrder({super.key});
+  final Function() backshow;
+  const ShowOrder({
+    super.key,
+    required this.backshow,
+  });
 
   @override
   State<ShowOrder> createState() => _ShowOrderState();
 }
-
-List<Map> items1 = [
-  {
-    "name": "Berries",
-    "Image":
-        'https://images.pexels.com/photos/326131/pexels-photo-326131.jpeg?auto=compress&cs=tinysrgb&w=600',
-    "object type": "Fruit",
-    "Price": 35,
-    'Quantity': 1,
-    "riderimage":
-        'https://images.pexels.com/photos/6170398/pexels-photo-6170398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    'Ordertext': 'Your Berries are on the way',
-    'ridername': 'Shahzad',
-  },
-];
 
 class _ShowOrderState extends State<ShowOrder> {
   @override
@@ -38,7 +27,7 @@ class _ShowOrderState extends State<ShowOrder> {
         child: SafeArea(
             child: Column(
           children: [
-            CustomAppbar(bartitle: 'Orders'),
+            CustomAppbar(bartitle: 'Orders', Appback: widget.backshow),
             Padding(
               padding: const EdgeInsets.all(15),
               child: Row(
@@ -82,22 +71,36 @@ class _ShowOrderState extends State<ShowOrder> {
                 ],
               ),
             ),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                return Orderlisttile(
-                  ridername: items[index]['ridername'],
-                  Orderwaytext: items[index]['Ordertext'],
-                  pprice: items[index]['Price'],
-                  urlimage: items[index]['Image'],
-                  text: items[index]['name'],
-                  riderimage: items[index]['riderimage'],
-                  quantitytext: (' ${items[index]['Quantity']}'),
-                );
-              },
-            ),
+            items.isEmpty
+                ? Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: MediaQuery.of(context).size.height * 0.7,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: AppColors.black10),
+                    child: Center(
+                      child: Text(
+                        "No items",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                  )
+                : ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: items.length,
+                    itemBuilder: (context, index) {
+                      return Orderlisttile(
+                        ridername: items[index]['ridername'],
+                        Orderwaytext: items[index]['Ordertext'],
+                        pprice: items[index]['Price'],
+                        urlimage: items[index]['Image'],
+                        text: items[index]['name'],
+                        riderimage: items[index]['riderimage'],
+                        quantitytext: (' ${items[index]['Quantity']}'),
+                      );
+                    },
+                  ),
           ],
         )),
       ),

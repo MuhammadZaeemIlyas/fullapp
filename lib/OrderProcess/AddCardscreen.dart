@@ -26,6 +26,9 @@ class _AddCardscreenState extends State<AddCardscreen> {
                 child: Column(
                   children: [
                     CustomAppbar(
+                      Appback: () {
+                        Navigator.pop(context);
+                      },
                       bartitle: "Add Card",
                     ),
                     SizedBox(
@@ -83,7 +86,11 @@ class _AddCardscreenState extends State<AddCardscreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ShowOrder(),
+                          builder: (context) => ShowOrder(
+                            backshow: () {
+                              Navigator.pop(context);
+                            },
+                          ),
                         ));
                   },
                   BtnText: 'Make Payment')
