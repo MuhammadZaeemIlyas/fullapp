@@ -21,6 +21,8 @@ class Home extends StatefulWidget {
 
 List<Map> items = [];
 
+List<Map> favoriteitems = [];
+bool favoritepressed = false;
 List<Map> Orders = [];
 
 int v = 0;
@@ -29,6 +31,16 @@ int fixedamount = 12;
 int result = 12;
 
 class _HomeState extends State<Home> {
+  void toggleFavorite(int index) {
+    setState(() {
+      if (favoriteitems.contains(Data[index])) {
+        favoriteitems.remove(Data[index]);
+      } else {
+        favoriteitems.add(Data[index]);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -207,6 +219,7 @@ class _HomeState extends State<Home> {
                       mainAxisSpacing: 50),
                   itemCount: Data.length,
                   itemBuilder: (context, index) {
+                    bool isFavorite = favoriteitems.contains(Data[index]);
                     return GestureDetector(
                         onTap: () async {
                           setState(() {
@@ -221,6 +234,19 @@ class _HomeState extends State<Home> {
                           });
                         },
                         child: imagecard(
+                          iconchahiye: isFavorite
+                              ? Icon(
+                                  Icons.favorite_sharp,
+                                  color: Colors.yellow, // Filled icon color
+                                )
+                              : Icon(
+                                  Icons.favorite_border,
+                                  color:
+                                      AppColors.black100, // Outlined icon color
+                                ),
+                          favoritepressed: () {
+                            toggleFavorite(index);
+                          },
                           imagechahiye: Data[index]['Image'],
                           firstUnittext: 'Price',
                           itemname: Data[index]['name'],

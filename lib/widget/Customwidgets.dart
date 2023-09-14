@@ -296,7 +296,10 @@ class imagecard extends StatefulWidget {
   final String imagechahiye;
   final String? firstUnittext;
   final int? pricetext;
+  final Widget iconchahiye;
   final Function()? pressed;
+
+  final Function()? favoritepressed;
   final String? itemname;
   final String? itemtype;
   const imagecard(
@@ -306,7 +309,9 @@ class imagecard extends StatefulWidget {
       this.pricetext,
       this.itemname,
       this.itemtype,
-      this.pressed});
+      this.pressed,
+      this.favoritepressed,
+      required this.iconchahiye});
 
   @override
   State<imagecard> createState() => _imagecardState();
@@ -353,8 +358,9 @@ class _imagecardState extends State<imagecard> {
                       ),
                     ),
                     IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.favorite_border_rounded))
+                      onPressed: widget.favoritepressed,
+                      icon: widget.iconchahiye,
+                    )
                   ],
                 ),
                 AppSmallText(
