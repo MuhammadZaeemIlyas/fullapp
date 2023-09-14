@@ -261,17 +261,19 @@ class _HomeState extends State<Home> {
                               if (items.contains(Data[index])) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
+                                      duration: Duration(milliseconds: 300),
                                       content: AppSmallText(
-                                    text: 'Already Added',
-                                  )),
+                                        text: 'Already Added',
+                                      )),
                                 );
                               } else {
                                 items.add(Data[index]);
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
+                                      duration: Duration(milliseconds: 300),
                                       content: AppSmallText(
-                                    text: 'Item Added in Cart',
-                                  )),
+                                        text: 'Item Added in Cart',
+                                      )),
                                 );
                                 print(items);
                               }

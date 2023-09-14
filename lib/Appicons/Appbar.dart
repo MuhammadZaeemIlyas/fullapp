@@ -43,11 +43,6 @@ class _CustomAppbarState extends State<CustomAppbar> {
                       size: 20),
                 ),
               ),
-              IconButton(
-                onPressed: () {},
-                icon: SvgPicture.asset('assets/images/bag black.svg'),
-                color: AppColors.black100,
-              ),
             ],
           ),
         ),

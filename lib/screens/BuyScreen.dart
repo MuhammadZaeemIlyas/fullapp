@@ -143,6 +143,9 @@ class _BuyScreenState extends State<BuyScreen> {
                               color: AppColors.black100,
                               family: "Manrope",
                             )),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.02,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -195,7 +198,10 @@ class _BuyScreenState extends State<BuyScreen> {
                                   )),
                             )
                           ],
-                        )
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.03,
+                        ),
                       ],
                     ),
                   ),

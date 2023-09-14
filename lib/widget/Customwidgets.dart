@@ -44,11 +44,13 @@ class Customwidgets extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 DefaultText(text: text1!, size: 24),
-                AppSmallText(
-                  text: text2!,
-                  family: "Manrope",
-                  size: 35,
-                  weight: FontWeight.bold,
+                Expanded(
+                  child: AppSmallText(
+                    text: text2!,
+                    family: "Manrope",
+                    size: 35,
+                    weight: FontWeight.bold,
+                  ),
                 ),
                 Expanded(
                   child: DefaultText(
