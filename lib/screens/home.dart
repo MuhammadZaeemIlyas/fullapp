@@ -52,11 +52,12 @@ class _HomeState extends State<Home> {
                         family: "Manrope",
                       ),
                       trailing: ShoppingBagWithBadge(
-                        buttonpressed: () {
-                          Navigator.push(
+                        buttonpressed: () async {
+                          await Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => ShoppingCart()));
+                          setState(() {});
                         },
                         badgeCount: items.length,
                         icon1: SvgPicture.asset('assets/images/bag.svg'),

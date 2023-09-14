@@ -135,6 +135,11 @@ class _ShoppingCartState extends State<ShoppingCart> {
                           });
                         },
                         quantitytext: (' ${items[index]['Quantity']}'),
+                        crosspressed: () {
+                          setState(() {
+                            items.removeAt(index);
+                          });
+                        },
                       ),
                     );
                   },

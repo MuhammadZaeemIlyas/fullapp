@@ -185,6 +185,7 @@ class CustomListTile extends StatefulWidget {
   final int pprice;
   final Function() pressedminus;
   final Function() pressedplus;
+  final Function() crosspressed;
   final String urlimage;
   const CustomListTile({
     super.key,
@@ -194,6 +195,7 @@ class CustomListTile extends StatefulWidget {
     required this.pressedminus,
     required this.pressedplus,
     required this.quantitytext,
+    required this.crosspressed,
   });
 
   @override
@@ -221,6 +223,7 @@ class _CustomListTileState extends State<CustomListTile> {
           IconButton(
             onPressed: widget.pressedplus,
             icon: Icon(Icons.add),
+            iconSize: 15,
           ),
           SizedBox(
             width: 5,
@@ -236,7 +239,16 @@ class _CustomListTileState extends State<CustomListTile> {
           SizedBox(
             width: 5,
           ),
-          IconButton(onPressed: widget.pressedminus, icon: Icon(Icons.remove))
+          IconButton(
+            onPressed: widget.pressedminus,
+            icon: Icon(Icons.remove),
+            iconSize: 15,
+          ),
+          IconButton(
+            onPressed: widget.crosspressed,
+            icon: Icon(Icons.close_rounded),
+            iconSize: 15,
+          ),
         ],
       ),
     );
