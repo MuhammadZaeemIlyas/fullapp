@@ -14,6 +14,8 @@ class AddCardscreen extends StatefulWidget {
   State<AddCardscreen> createState() => _AddCardscreenState();
 }
 
+bool paymentsuccess = false;
+
 class _AddCardscreenState extends State<AddCardscreen> {
   @override
   Widget build(BuildContext context) {
@@ -83,6 +85,9 @@ class _AddCardscreenState extends State<AddCardscreen> {
                   text5: 'Total',
                   text6: '$Total',
                   buttonpressed: () {
+                    setState(() {
+                      paymentsuccess = true;
+                    });
                     Navigator.push(
                         context,
                         MaterialPageRoute(

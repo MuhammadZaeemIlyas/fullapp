@@ -36,7 +36,7 @@ class Orderlisttile extends StatefulWidget {
   final String quantitytext;
   final int pprice;
   final String ridername;
-
+  final Function() trackpressed;
   final String urlimage;
 
   final String riderimage;
@@ -48,7 +48,8 @@ class Orderlisttile extends StatefulWidget {
       required this.urlimage,
       required this.riderimage,
       required this.Orderwaytext,
-      required this.ridername});
+      required this.ridername,
+      required this.trackpressed});
 
   @override
   State<Orderlisttile> createState() => _OrderlisttileState();
@@ -167,7 +168,7 @@ class _OrderlisttileState extends State<Orderlisttile> {
                           color: AppColors.black1,
                           family: "Manrope",
                           size: 15,
-                          pressed: () {},
+                          pressed: widget.trackpressed,
                         ))
                   ],
                 ),

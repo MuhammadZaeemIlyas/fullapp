@@ -56,3 +56,60 @@ class _favoritetileState extends State<favoritetile> {
     );
   }
 }
+
+class Delivertile extends StatefulWidget {
+  final String text;
+  final Function() crosspressed;
+  final String Price;
+  final String urlImage;
+
+  const Delivertile(
+      {super.key,
+      required this.text,
+      required this.crosspressed,
+      required this.Price,
+      required this.urlImage});
+
+  @override
+  State<Delivertile> createState() => _DelivertileState();
+}
+
+class _DelivertileState extends State<Delivertile> {
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      tileColor: AppColors.black1,
+      leading: Container(
+        width: 55,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            image: DecorationImage(
+                image: NetworkImage(widget.urlImage), fit: BoxFit.cover)),
+      ),
+      title:
+          DefaultText(text: widget.text, color: AppColors.black100, size: 17),
+      subtitle: AppSmallText(
+        text: widget.Price,
+        color: AppColors.black100,
+        size: 25,
+        weight: FontWeight.bold,
+      ),
+      trailing: Wrap(
+        children: [
+          Container(
+            width: 70,
+            height: 70,
+            decoration:
+                BoxDecoration(shape: BoxShape.circle, color: AppColors.blue),
+            child: IconButton(
+              onPressed: widget.crosspressed,
+              icon: Icon(Icons.chat_bubble),
+              iconSize: 25,
+              color: AppColors.black1,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mini_ui_project/Appicons/Appbar.dart';
+import 'package:mini_ui_project/OrderProcess/AddCardscreen.dart';
+import 'package:mini_ui_project/OrderProcess/Takingdelivery.dart';
 import 'package:mini_ui_project/OrderProcess/Widgets/widgets.dart';
 import 'package:mini_ui_project/MainData/Data.dart';
 import 'package:mini_ui_project/constan/appColors.dart';
@@ -18,6 +20,8 @@ class ShowOrder extends StatefulWidget {
   @override
   State<ShowOrder> createState() => _ShowOrderState();
 }
+
+List<Map> deliveryorder = [];
 
 class _ShowOrderState extends State<ShowOrder> {
   @override
@@ -71,7 +75,7 @@ class _ShowOrderState extends State<ShowOrder> {
                 ],
               ),
             ),
-            items.isEmpty
+            paymentsuccess == false
                 ? Container(
                     width: MediaQuery.of(context).size.width * 0.9,
                     height: MediaQuery.of(context).size.height * 0.7,
@@ -79,11 +83,12 @@ class _ShowOrderState extends State<ShowOrder> {
                         borderRadius: BorderRadius.circular(30),
                         color: AppColors.black10),
                     child: Center(
-                      child: Text(
-                        "No items",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
+                        child: AppSmallText(
+                      text: "Please make payment",
+                      color: AppColors.black100,
+                      family: "Manrope",
+                      size: 18,
+                    )),
                   )
                 : ListView.builder(
                     shrinkWrap: true,
@@ -91,6 +96,20 @@ class _ShowOrderState extends State<ShowOrder> {
                     itemCount: items.length,
                     itemBuilder: (context, index) {
                       return Orderlisttile(
+                        trackpressed: () async {
+                          await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TakingDelivery(
+                                        riderimage: items[index]['riderimage'],
+                                        imagechahiye: items[index]['Image'],
+                                        ridername: items[index]['ridername'],
+                                      )));
+                          deliveryorder.add(items[index]);
+                          print(deliveryorder);
+                          items.clear();
+                          setState(() {});
+                        },
                         ridername: items[index]['ridername'],
                         Orderwaytext: items[index]['Ordertext'],
                         pprice: items[index]['Price'],
