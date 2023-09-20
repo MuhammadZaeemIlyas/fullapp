@@ -41,14 +41,15 @@ class _TakingDeliveryState extends State<TakingDelivery> {
               height: MediaQuery.of(context).size.height * 0.7,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: NetworkImage(widget.imagechahiye),
+                      image: NetworkImage(
+                          'https://images.pexels.com/photos/15949908/pexels-photo-15949908/free-photo-of-navigating-the-city-with-the-phone.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
                       fit: BoxFit.cover),
                   borderRadius: BorderRadius.circular(20),
                   color: AppColors.black10),
             ),
             Delivertile(
                 text: 'Delivery Man',
-                Price: "Rakibul hasan",
+                Price: widget.ridername,
                 urlImage: widget.riderimage,
                 crosspressed: () {}),
             ListTile(
