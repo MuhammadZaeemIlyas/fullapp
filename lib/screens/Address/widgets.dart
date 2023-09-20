@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:mini_ui_project/constan/appColors.dart';
 import 'package:mini_ui_project/widget/appSmallText.dart';
 
+List<Map> deaddress = [];
+
 class AddressContainer extends StatefulWidget {
   final bool isSelected;
   final ValueChanged<bool> onSelect;
   final String Maintext;
+  final Map<dynamic, dynamic> index;
   final String address;
   final String state;
-
+  final Function()? ontap;
   const AddressContainer({
     Key? key,
     required this.isSelected,
@@ -16,6 +19,8 @@ class AddressContainer extends StatefulWidget {
     required this.Maintext,
     required this.address,
     required this.state,
+    this.ontap,
+    required this.index,
   }) : super(key: key);
 
   @override
@@ -29,6 +34,11 @@ class _AddressContainerState extends State<AddressContainer> {
       padding: const EdgeInsets.symmetric(vertical: 2),
       child: GestureDetector(
         onTap: () {
+          print('mweaasdf');
+          setState(() {
+            deaddress.clear();
+            deaddress.add(widget.index);
+          });
           widget.onSelect(!widget.isSelected);
         },
         child: Container(

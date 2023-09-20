@@ -3,6 +3,8 @@ import 'package:mini_ui_project/Appicons/Appbar.dart';
 import 'package:mini_ui_project/OrderProcess/Showorder.dart';
 import 'package:mini_ui_project/OrderProcess/Widgets/widgets.dart';
 import 'package:mini_ui_project/constan/appColors.dart';
+import 'package:mini_ui_project/screens/Address/Address_Screen.dart';
+import 'package:mini_ui_project/screens/Address/widgets.dart';
 import 'package:mini_ui_project/screens/Shoppincart.dart';
 import 'package:mini_ui_project/widget/Customwidgets.dart';
 import 'package:mini_ui_project/widget/appSmallText.dart';
@@ -17,6 +19,13 @@ class AddCardscreen extends StatefulWidget {
 bool paymentsuccess = false;
 
 class _AddCardscreenState extends State<AddCardscreen> {
+  @override
+  void initState() {
+    print(deaddress);
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

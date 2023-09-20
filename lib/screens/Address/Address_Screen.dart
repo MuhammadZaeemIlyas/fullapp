@@ -42,6 +42,7 @@ class _AddressScreenState extends State<AddressScreen> {
                       ),
 
                       AddressContainer(
+                        index: Address[index],
                         Maintext: Address[index]['home'],
                         address: Address[index]['Address'],
                         state: Address[index]['Status'],
@@ -83,10 +84,18 @@ class _AddressScreenState extends State<AddressScreen> {
                     text: "Add  Card",
                     color: AppColors.black1,
                     pressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => AddCardscreen()));
+                      deaddress.isEmpty
+                          ? ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                  duration: Duration(milliseconds: 300),
+                                  content: AppSmallText(
+                                    text: 'Please Select Adress to deliver',
+                                  )),
+                            )
+                          : Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AddCardscreen()));
                     }),
               )
             ],

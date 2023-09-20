@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mini_ui_project/Appicons/Appbar.dart';
 import 'package:mini_ui_project/OrderProcess/Showorder.dart';
 import 'package:mini_ui_project/constan/appColors.dart';
+import 'package:mini_ui_project/screens/Address/widgets.dart';
 import 'package:mini_ui_project/screens/favorite/widgets/favorite_widgets.dart';
 import 'package:mini_ui_project/screens/home.dart';
 import 'package:mini_ui_project/widget/appSmallText.dart';
@@ -62,8 +63,11 @@ class _TakingDeliveryState extends State<TakingDelivery> {
               leading: Icon(Icons.location_city),
               title: AppSmallText(
                   text: "Delivery Address", color: AppColors.black100),
-              subtitle:
-                  AppSmallText(text: "37 New Line", color: AppColors.black100),
+              subtitle: AppSmallText(
+                  text: deaddress.isEmpty
+                      ? 'Please select address'
+                      : deaddress[0]["Address"],
+                  color: AppColors.black100),
             ),
           ],
         )),
