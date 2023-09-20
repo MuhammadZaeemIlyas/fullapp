@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:mini_ui_project/Appicons/Appbar.dart';
 import 'package:mini_ui_project/OrderProcess/Showorder.dart';
 import 'package:mini_ui_project/constan/appColors.dart';
+import 'package:mini_ui_project/get_started.dart';
 import 'package:mini_ui_project/screens/Address/widgets.dart';
 import 'package:mini_ui_project/screens/favorite/widgets/favorite_widgets.dart';
 import 'package:mini_ui_project/screens/home.dart';
+import 'package:mini_ui_project/screens/home_screen.dart';
 import 'package:mini_ui_project/widget/appSmallText.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -33,7 +35,12 @@ class _TakingDeliveryState extends State<TakingDelivery> {
             CustomAppbar(
               bartitle: "Track Order",
               Appback: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomeScreen(),
+                    ));
+                items.clear();
               },
             ),
             Container(
